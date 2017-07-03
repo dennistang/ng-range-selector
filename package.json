@@ -1,0 +1,19 @@
+{
+  "name": "ng-range-selector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dennistang/ng-range-selector.git"
+  },
+  "author": "Dennis Tang <dennis@dennistang.net>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dennistang/ng-range-selector/issues"
+  },
+  "homepage": "https://github.com/dennistang/ng-range-selector#readme"
+}
