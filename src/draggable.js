@@ -1,3 +1,7 @@
+/**
+* @ngdoc directive
+* @name draggable
+**/
 export const draggable = function($document) {
   'ngInject';
 

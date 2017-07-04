@@ -1,6 +1,6 @@
 /**
-* @ngdoc directive // Mark the object as a directive
-* @name rangeSelector //start with the module name. the second part is always directive. the directive name goes after the the column
+* @ngdoc component
+* @name rangeSelector
 **/
 function rangeSelectorController($scope, $element, $attrs, $timeout) {
   'ngInject';
@@ -185,7 +185,7 @@ function width(elm) {
   return Math.floor(elm.prop('offsetWidth') || 0);
 }
 
-export let rangeSelector = {
+export const rangeSelector = {
   template: `
 	<div class="range-selector" data-min="{{::$ctrl.range.min}}" data-max="{{::$ctrl.range.max}}">
 	<lo draggable="$ctrl.constrainLo()"></lo>
