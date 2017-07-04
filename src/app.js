@@ -9,16 +9,15 @@ APP.controller('rangeController', function() {
     low: 20,
     high: 80,
     min: 0,
-    max: 100
+    max: 100,
   };
 
   this.rangeFloat = {
     low: 15000,
     high: 18000,
     min: 12000,
-    max: 29875
+    max: 29875,
   };
 });
 
-APP.component('rangeSelector', rangeSelector)
-   .directive('draggable', draggable);
+APP.component('rangeSelector', rangeSelector).directive('draggable', draggable);

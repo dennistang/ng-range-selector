@@ -1,15 +1,15 @@
-export const draggable = function ($document) {
-  'ngInject'
+export const draggable = function($document) {
+  'ngInject';
 
   let endTypes = 'touchend touchcancel mouseup mouseleave',
     moveTypes = 'touchmove mousemove',
     startTypes = 'touchstart mousedown';
 
-  let normalisePoints = function (event) {
-    event = (event.touches) ? event.touches[0] : event;
+  let normalisePoints = function(event) {
+    event = event.touches ? event.touches[0] : event;
     return {
       pageX: event.pageX,
-      pageY: event.pageY
+      pageY: event.pageY,
     };
   };
 
@@ -17,36 +17,33 @@ export const draggable = function ($document) {
     restrict: 'A',
     link: link,
     scope: {
-      constrain: "&draggable"
-    }
+      constrain: '&draggable',
+    },
   };
 
   function link($scope, $element, $attrs) {
-    let
-      $elementStartX = 0,
+    let $elementStartX = 0,
       $elementStartY = 0,
       interactionStart = {
         pageX: 0,
-        pageY: 0
+        pageY: 0,
       };
 
-    $document.on(endTypes, function (event) {
+    $document.on(endTypes, function(event) {
       event.preventDefault();
       $document.off(moveTypes, handleMove);
     });
 
-    $element.on(startTypes, function (event) {
+    $element.on(startTypes, function(event) {
       event.preventDefault();
 
       $elementStartX = parseInt($element.css('left'));
       $elementStartY = parseInt($element.css('top'));
       interactionStart = normalisePoints(event);
 
-      if (isNaN($elementStartX))
-        $elementStartX = 0;
+      if (isNaN($elementStartX)) $elementStartX = 0;
 
-      if (isNaN($elementStartY))
-        $elementStartY = 0;
+      if (isNaN($elementStartY)) $elementStartY = 0;
 
       $document.on(moveTypes, handleMove);
     });
@@ -56,8 +53,12 @@ export const draggable = function ($document) {
 
       let interactionCurrent = normalisePoints(event);
 
-      let x = Math.floor($elementStartX + (interactionCurrent.pageX - interactionStart.pageX));
-      let y = Math.floor($elementStartY + (interactionCurrent.pageY - interactionStart.pageY));
+      let x = Math.floor(
+        $elementStartX + (interactionCurrent.pageX - interactionStart.pageX)
+      );
+      let y = Math.floor(
+        $elementStartY + (interactionCurrent.pageY - interactionStart.pageY)
+      );
 
       //enforce constraints
       let c = $scope.constrain();
@@ -68,13 +69,10 @@ export const draggable = function ($document) {
 
       $element.css({
         left: x + 'px',
-        top: y + 'px'
+        top: y + 'px',
       });
 
       c.callback();
     }
-
   }
-
-
-}
+};
