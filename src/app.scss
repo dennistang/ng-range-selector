@@ -1,0 +1,36 @@
+body {
+	font: normal 13px arial;
+}
+
+.panel {
+	position: relative;
+	display: block;
+	.content {
+		background: #ffffff;
+		padding: 10px;
+		overflow: auto;
+	}
+	>* {
+		&:not([style*="display:none"]) {
+			&:last-child {
+				border-bottom: 1px solid #b8b7b7;
+				border-bottom-left-radius: 3px;
+				border-bottom-right-radius: 3px;
+				box-shadow: 0 2px 3px rgba(2, 2, 2, 0.12);
+			}
+		}
+	}
+}
+
+.pad-sm {
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+
+range-selector {
+  display: block;
+}
+
+@import 'range-selector';

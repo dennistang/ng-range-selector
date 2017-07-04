@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"`npm bin`/webpack-dev-server --open\" \"yarn watch-sass\"",
+    "watch-sass": "yarn build-sass && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "build-sass": "node-sass-chokidar src/ -o src/ && cp src/app.css dist/",
+    "build": "yarn build-sass && webpack"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,18 @@
   "bugs": {
     "url": "https://github.com/dennistang/ng-range-selector/issues"
   },
-  "homepage": "https://github.com/dennistang/ng-range-selector#readme"
+  "homepage": "https://github.com/dennistang/ng-range-selector#readme",
+  "dependencies": {
+    "angular": "^1.6.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-angularjs-annotate": "^0.7.0",
+    "babel-preset-env": "^1.5.2",
+    "concurrently": "^3.5.0",
+    "node-sass-chokidar": "0.0.3",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
+  }
 }
